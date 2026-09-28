@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}邮件详情{% endblock %}
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h2>{{ email.title }}</h2>
+    </div>
+    <div class="card-body">
+        <div class="row mb-3">
+            <div class="col-md-2 fw-bold">发件人:</div>
+            <div class="col-md-10">{{ email.sender_name }}</div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-2 fw-bold">收件人:</div>
+            <div class="col-md-10">{{ recipients|join(', ') }}</div>
+        </div>
+        {% if cc_recipients %}
+        <div class="row mb-3">
+            <div class="col-md-2 fw-bold">抄送:</div>
+            <div class="col-md-10">{{ cc_recipients|join(', ') }}</div>
+        </div>
+        {% endif %}
+        <div class="row mb-3">
+            <div class="col-md-2 fw-bold">时间:</div>
+            <div class="col-md-10">{{ email.create_time }}</div>
+        </div>
+        <hr>
+        <div class="mb-3">
+            <p>{{ email.textbody }}</p>
+        </div>
+        <div class="mt-4">
+            <a href="/reply_email/{{ email.eid }}" class="btn btn-primary">回复</a>
+            <a href="/emails" class="btn btn-secondary">返回</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

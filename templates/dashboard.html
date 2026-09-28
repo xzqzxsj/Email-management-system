@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}仪表盘{% endblock %}
+{% block content %}
+<h2>欢迎, {{ user_name }}</h2>
+<div class="row mt-4">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">写邮件</h5>
+                <p class="card-text">撰写并发送新邮件</p>
+                <a href="/compose" class="btn btn-primary">去写邮件</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">查看收件箱</h5>
+                <p class="card-text">查看收到的邮件</p>
+                <a href="/emails" class="btn btn-primary">查看邮件</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">管理联系人</h5>
+                <p class="card-text">添加或查看联系人</p>
+                <a href="/contacts" class="btn btn-primary">管理联系人</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

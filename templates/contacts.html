@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}联系人管理{% endblock %}
+{% block content %}
+<h2>联系人列表</h2>
+<button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addContactModal">添加联系人</button>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>姓名</th>
+            <th>邮箱</th>
+            <th>电话</th>
+            <th>地址</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for contact in contacts %}
+        <tr>
+            <td>{{ contact.uid }}</td>
+            <td>{{ contact.uname }}</td>
+            <td>{{ contact.email }}</td>
+            <td>{{ contact.cellphone }}</td>
+            <td>{{ contact.address }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- 添加联系人模态框 -->
+<div class="modal fade" id="addContactModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">添加新联系人</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form method="POST" action="/add_contact">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">姓名</label>
+                        <input type="text" class="form-control" name="uname" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">邮箱</label>
+                        <input type="email" class="form-control" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">电话</label>
+                        <input type="tel" class="form-control" name="cellphone">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">地址</label>
+                        <input type="text" class="form-control" name="address">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-primary">添加</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
