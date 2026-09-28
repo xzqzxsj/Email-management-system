@@ -1,2 +1,5 @@
 # Email-management-system
 MySQL数据库课程实践：设计一个电子邮件管理系统，实现数据定义、数据操纵、数据控制等功能。具体任务包括创建数据库和数据表、查询邮件管理信息、创建邮件管理视图、设计功能保障系统安全。本实践作业最后利用 Python 中的 Flask 模块和 pymysql 模块开发了邮件管理系统的实体网页（不是重点，只是附加模块），旨在熟悉产品开发的全周期过程。
+电子邮件系统.sql：主体SQL代码
+email_management.py：Python开发网页代码
+templates：html代码
